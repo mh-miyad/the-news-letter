@@ -2,9 +2,20 @@ import { Button, Checkbox, Label, TextInput } from 'flowbite-react'
 import Lottie from "lottie-react";
 import log_in_Img from "../assets/111594-login.json";
 import 'animate.css'
+import { FormControl, IconButton, Input, InputAdornment, InputLabel } from '@mui/material';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { useState } from 'react';
 
 
 const LogIn_Comp = () => {
+ const [showPassword ,setShowPassword] =useState(false)
+  const handleClickShowPassword =()=>{
+    
+     setShowPassword(!showPassword)
+
+    
+  }
   return (
   <>
    <div className='flex  flex-col-reverse lg:flex-row items-center gap-10 justify-around '>
@@ -34,13 +45,28 @@ const LogIn_Comp = () => {
         htmlFor="password1"
         value="Your password"
       />
+      <div>
+      <FormControl sx={{ m: 2, width: '70ch' }} variant="standard">
+          <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
+          <Input
+            id="standard-adornment-password"
+            type={showPassword ? 'text' : 'password'}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                 
+                >
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            }
+          />
+        </FormControl>
+      </div>
     </div>
-    <TextInput
-      id="password1"
-      type="password"
-      required={true}
-      placeholder='Write Your Password '
-    />
+  
   </div>
   <div className="flex items-center gap-2">
    
