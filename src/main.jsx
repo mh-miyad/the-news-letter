@@ -7,6 +7,7 @@ import SignUp from "./Component/SignUp_Comp.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./index.css";
+import Authprovider from "./Provider/Authprovider.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,6 +28,9 @@ const router = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+   <Authprovider>
+
+   <RouterProvider router={router} />
+   </Authprovider>
   </React.StrictMode>
 );
